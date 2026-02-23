@@ -2,10 +2,10 @@
 export { default as UIRenderer, isUINode, getAvailablePrimitives, registerPrimitives } from "./renderer";
 
 // Types
-export type { UINode, PrimitiveSchema, ComponentSchema } from "./types";
+export type { UINode, ComponentSchema } from "./types";
 
 // Schema
-export { componentSchema, getPrimitiveSchemas, getFullExample } from "./schema";
+export { componentSchema, getComponentSchemas } from "./schema";
 
 // UI Components
 export { Button } from "./ui";
