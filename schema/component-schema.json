@@ -1,0 +1,117 @@
+{
+  "$schema": "Generative UI Component Schema",
+  "description": "Available primitive components for composing chat UI. The AI should return a JSON tree using these types. Each node has: type (string), props (object), children (array of nodes, optional).",
+  "primitives": {
+    "card": {
+      "description": "Container with optional title and subtitle. Can wrap other components as children.",
+      "props": {
+        "title": { "type": "string", "required": false, "description": "Card heading text" },
+        "subtitle": { "type": "string", "required": false, "description": "Secondary text below the title" }
+      },
+      "accepts_children": true,
+      "example": {
+        "type": "card",
+        "props": { "title": "Project Summary", "subtitle": "Last updated 2 hours ago" },
+        "children": []
+      }
+    },
+    "key-value": {
+      "description": "Displays a list of label-value pairs. Use for entity details like name, status, email, etc.",
+      "props": {
+        "items": {
+          "type": "array",
+          "required": true,
+          "description": "Array of { label, value } objects",
+          "item_schema": {
+            "label": { "type": "string", "description": "Field name (e.g. 'Email', 'Status')" },
+            "value": { "type": "string", "description": "Field value" }
+          }
+        }
+      },
+      "accepts_children": false,
+      "example": {
+        "type": "key-value",
+        "props": {
+          "items": [
+            { "label": "Client", "value": "Orchid Flo" },
+            { "label": "Status", "value": "Active" },
+            { "label": "Email", "value": "ray@example.com" }
+          ]
+        }
+      }
+    },
+    "button-group": {
+      "description": "Row of action buttons. Use when offering choices or actions to the user.",
+      "props": {
+        "buttons": {
+          "type": "array",
+          "required": true,
+          "description": "Array of button definitions",
+          "item_schema": {
+            "label": { "type": "string", "description": "Button text" },
+            "variant": { "type": "string", "enum": ["primary", "secondary", "outline"], "description": "Button style" },
+            "url": { "type": "string", "required": false, "description": "URL to open when clicked" }
+          }
+        }
+      },
+      "accepts_children": false,
+      "example": {
+        "type": "button-group",
+        "props": {
+          "buttons": [
+            { "label": "Open Project", "variant": "primary", "url": "/projects/123" },
+            { "label": "View Documents", "variant": "outline" }
+          ]
+        }
+      }
+    }
+  },
+  "ui_tree_format": {
+    "description": "The AI should return a JSON object with this structure. Send it via Centrifugo as the message payload.",
+    "schema": {
+      "type": { "type": "string", "description": "One of the primitive type names above" },
+      "props": { "type": "object", "description": "Props matching the primitive's prop schema" },
+      "children": { "type": "array", "description": "Optional array of nested nodes (only for types with accepts_children: true)" }
+    }
+  },
+  "full_example": {
+    "type": "card",
+    "props": { "title": "Client Overview" },
+    "children": [
+      {
+        "type": "key-value",
+        "props": {
+          "items": [
+            { "label": "Name", "value": "Orchid Flo" },
+            { "label": "Type", "value": "Company" },
+            { "label": "Email", "value": "ray@example.com" }
+          ]
+        }
+      },
+      {
+        "type": "card",
+        "props": { "title": "Project: Promotion" },
+        "children": [
+          {
+            "type": "key-value",
+            "props": {
+              "items": [
+                { "label": "Status", "value": "Active" },
+                { "label": "Workspaces", "value": "3" }
+              ]
+            }
+          },
+          {
+            "type": "button-group",
+            "props": {
+              "buttons": [
+                { "label": "Open Project", "variant": "primary" },
+                { "label": "View Documents", "variant": "outline" }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
