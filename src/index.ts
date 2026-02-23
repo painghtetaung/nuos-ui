@@ -19,6 +19,10 @@ export type {
 // Schema
 export { componentSchema, getPrimitiveSchemas, getFullExample } from "./schema";
 
+// UI Components
+export { Button } from "./ui";
+export type { ButtonProps } from "./ui";
+
 // Utils
 export { cn } from "./utils";
 

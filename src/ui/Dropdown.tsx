@@ -1,7 +1,6 @@
 import { cn } from "../utils";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { CheckIcon, ChevronRightIcon } from "lucide-react";
-import { MagickoCheck } from "magick-icons";
 
 // Base components for dropdown menu
 function DropdownMenu({
@@ -150,25 +149,7 @@ function DropdownMenuRadioItem({
       )}
       {...props}
     >
-      {/* {checkPosition === "left" && (
-        <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
-          <DropdownMenuPrimitive.ItemIndicator>
-            <IconContainer disableTheme colorInFill={false}>
-              <MagickoCheck className="[&_path]:fill-element-inverse-blue size-4" />
-            </IconContainer>
-          </DropdownMenuPrimitive.ItemIndicator>
-        </span>
-      )} */}
       {children}
-      {/* {checkPosition === "right" && (
-        <span className="pointer-events-none absolute right-2 flex size-3.5 items-center justify-center">
-          <DropdownMenuPrimitive.ItemIndicator>
-            <IconContainer disableTheme colorInFill={false}>
-              <MagickoCheck className="[&_path]:fill-element-inverse-blue size-4" />
-            </IconContainer>
-          </DropdownMenuPrimitive.ItemIndicator>
-        </span>
-      )} */}
     </DropdownMenuPrimitive.RadioItem>
   );
 }

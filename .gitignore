@@ -28,5 +28,11 @@ pnpm-debug.log*
 # turbo
 .turbo/
 
+# storybook
+storybook-static/
+
+# generated
+src/generated/
+
 # misc
 *.tsbuildinfo

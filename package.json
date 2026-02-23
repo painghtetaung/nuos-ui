@@ -42,7 +42,10 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "build-tokens": "tsx src/design-tokens/generator.ts"
+    "build-tokens": "tsx src/design-tokens/generator.ts",
+    "playground": "vite --config playground/vite.config.ts",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -62,12 +65,17 @@
     "tailwind-merge": "^3.0.0"
   },
   "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwindcss": "^4.0.0",
     "tsup": "^8.0.0",
     "tsx": "^4.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "storybook": "^10.2.10",
+    "@storybook/react-vite": "^10.2.10",
+    "@storybook/addon-docs": "^10.2.10"
   },
   "keywords": [
     "generative-ui",

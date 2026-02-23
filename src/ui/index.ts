@@ -1,4 +1,4 @@
-export { Button, buttonVariants } from "./Button";
+export { Button } from "./Button";
 export type { ButtonProps } from "./Button";
 export { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./Card";
 export { default as Dialog } from "./Dialog";
