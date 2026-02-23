@@ -13,6 +13,8 @@ export interface ButtonProps
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   onlyIcon?: boolean;
+  label?: string;
+  url?: string;
   children?: React.ReactNode;
 }
 
@@ -95,12 +97,18 @@ function Button({
   prefix,
   suffix,
   onlyIcon,
+  label,
+  url,
   asChild = false,
   children,
   ...props
 }: ButtonProps) {
   const Comp = asChild ? Slot : "button";
   const isDisabled = state === "loading" || props.disabled;
+  const content = children ?? label;
+  const handleClick = url
+    ? (e: React.MouseEvent<HTMLButtonElement>) => { props.onClick?.(e); window.open(url, "_blank"); }
+    : props.onClick;
 
   const renderAffix = (node?: React.ReactNode) => {
     if (!node) return null;
@@ -126,6 +134,7 @@ function Button({
         className={cn("group relative cursor-pointer p-0.5")}
         disabled={isDisabled}
         {...props}
+        onClick={handleClick}
       >
         <div
           className={cn(
@@ -156,7 +165,7 @@ function Button({
         >
           {state === "loading" && <Loader2Icon className="animate-spin" />}
           {renderAffix(prefix)}
-          {children}
+          {content}
           {renderAffix(suffix)}
         </div>
       </Comp>
@@ -173,10 +182,11 @@ function Button({
       )}
       disabled={isDisabled}
       {...props}
+      onClick={handleClick}
     >
       {state === "loading" && <Loader2Icon className="animate-spin" />}
       {renderAffix(prefix)}
-      {children}
+      {content}
       {renderAffix(suffix)}
     </Comp>
   );

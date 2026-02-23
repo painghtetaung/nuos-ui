@@ -9,10 +9,10 @@ import schemaJson from "../schema/component-schema.json";
 export const componentSchema: ComponentSchema = schemaJson as ComponentSchema;
 
 /**
- * Returns just the primitives section of the schema.
+ * Returns just the components section of the schema.
  */
 export function getPrimitiveSchemas() {
-  return componentSchema.primitives;
+  return componentSchema.components;
 }
 
 /**

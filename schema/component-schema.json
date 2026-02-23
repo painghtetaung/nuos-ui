@@ -1,115 +1,88 @@
 {
   "$schema": "Generative UI Component Schema",
-  "description": "Available primitive components for composing chat UI. The AI should return a JSON tree using these types. Each node has: type (string), props (object), children (array of nodes, optional).",
-  "primitives": {
+  "description": "Available UI components for composing chat UI. The AI should return a JSON tree using these types. Each node has: type (string), props (object), children (array of nodes, optional).",
+  "components": {
     "card": {
-      "description": "Container with optional title and subtitle. Can wrap other components as children.",
-      "props": {
-        "title": { "type": "string", "required": false, "description": "Card heading text" },
-        "subtitle": { "type": "string", "required": false, "description": "Secondary text below the title" }
-      },
+      "description": "Container card. Compose with card-header, card-content, card-footer as children.",
+      "props": {},
       "accepts_children": true,
       "example": {
         "type": "card",
-        "props": { "title": "Project Summary", "subtitle": "Last updated 2 hours ago" },
-        "children": []
+        "children": [
+          {
+            "type": "card-header",
+            "children": [
+              { "type": "card-title", "props": {}, "children": [] },
+              { "type": "card-description", "props": {}, "children": [] }
+            ]
+          },
+          { "type": "card-content", "children": [] }
+        ]
       }
     },
-    "key-value": {
-      "description": "Displays a list of label-value pairs. Use for entity details like name, status, email, etc.",
-      "props": {
-        "items": {
-          "type": "array",
-          "required": true,
-          "description": "Array of { label, value } objects",
-          "item_schema": {
-            "label": { "type": "string", "description": "Field name (e.g. 'Email', 'Status')" },
-            "value": { "type": "string", "description": "Field value" }
-          }
-        }
-      },
-      "accepts_children": false,
-      "example": {
-        "type": "key-value",
-        "props": {
-          "items": [
-            { "label": "Client", "value": "Orchid Flo" },
-            { "label": "Status", "value": "Active" },
-            { "label": "Email", "value": "ray@example.com" }
-          ]
-        }
-      }
+    "card-header": {
+      "description": "Header section of a card. Place card-title and card-description inside.",
+      "props": {},
+      "accepts_children": true
     },
-    "button-group": {
-      "description": "Row of action buttons. Use when offering choices or actions to the user.",
+    "card-title": {
+      "description": "Title inside a card-header.",
+      "props": {},
+      "accepts_children": true
+    },
+    "card-description": {
+      "description": "Description text inside a card-header.",
+      "props": {},
+      "accepts_children": true
+    },
+    "card-content": {
+      "description": "Main content area of a card.",
+      "props": {},
+      "accepts_children": true
+    },
+    "card-footer": {
+      "description": "Footer section of a card, typically for actions.",
+      "props": {},
+      "accepts_children": true
+    },
+    "button": {
+      "description": "An action button. Use label prop for text, or compose children.",
       "props": {
-        "buttons": {
-          "type": "array",
-          "required": true,
-          "description": "Array of button definitions",
-          "item_schema": {
-            "label": { "type": "string", "description": "Button text" },
-            "variant": { "type": "string", "enum": ["primary", "secondary", "outline"], "description": "Button style" },
-            "url": { "type": "string", "required": false, "description": "URL to open when clicked" }
-          }
-        }
+        "label": { "type": "string", "required": false, "description": "Button text (shorthand for children)" },
+        "variant": { "type": "string", "enum": ["primary", "secondary", "outline", "destructive", "ghost", "soft"], "required": false, "description": "Defaults to 'primary'" },
+        "size": { "type": "string", "enum": ["sm", "md", "lg"], "required": false, "description": "Defaults to 'md'" },
+        "url": { "type": "string", "required": false, "description": "URL to open when clicked" },
+        "disabled": { "type": "boolean", "required": false }
       },
-      "accepts_children": false,
+      "accepts_children": true,
       "example": {
-        "type": "button-group",
-        "props": {
-          "buttons": [
-            { "label": "Open Project", "variant": "primary", "url": "/projects/123" },
-            { "label": "View Documents", "variant": "outline" }
-          ]
-        }
+        "type": "button",
+        "props": { "label": "View Details", "variant": "primary" }
       }
     }
   },
   "ui_tree_format": {
-    "description": "The AI should return a JSON object with this structure. Send it via Centrifugo as the message payload.",
+    "description": "The AI should return a JSON object with this structure.",
     "schema": {
-      "type": { "type": "string", "description": "One of the primitive type names above" },
-      "props": { "type": "object", "description": "Props matching the primitive's prop schema" },
+      "type": { "type": "string", "description": "One of the component type names above" },
+      "props": { "type": "object", "description": "Props matching the component's prop schema" },
       "children": { "type": "array", "description": "Optional array of nested nodes (only for types with accepts_children: true)" }
     }
   },
   "full_example": {
     "type": "card",
-    "props": { "title": "Client Overview" },
     "children": [
       {
-        "type": "key-value",
-        "props": {
-          "items": [
-            { "label": "Name", "value": "Orchid Flo" },
-            { "label": "Type", "value": "Company" },
-            { "label": "Email", "value": "ray@example.com" }
-          ]
-        }
+        "type": "card-header",
+        "children": [
+          { "type": "card-title", "props": {}, "children": [] }
+        ]
       },
       {
-        "type": "card",
-        "props": { "title": "Project: Promotion" },
+        "type": "card-content",
         "children": [
-          {
-            "type": "key-value",
-            "props": {
-              "items": [
-                { "label": "Status", "value": "Active" },
-                { "label": "Workspaces", "value": "3" }
-              ]
-            }
-          },
-          {
-            "type": "button-group",
-            "props": {
-              "buttons": [
-                { "label": "Open Project", "variant": "primary" },
-                { "label": "View Documents", "variant": "outline" }
-              ]
-            }
-          }
+          { "type": "button", "props": { "label": "Open Project", "variant": "primary" } },
+          { "type": "button", "props": { "label": "View Documents", "variant": "outline" } }
         ]
       }
     ]

@@ -3,7 +3,6 @@ import { defineConfig } from "tsup";
 export default defineConfig({
   entry: {
     index: "src/index.ts",
-    "primitives/index": "src/primitives/index.ts",
     schema: "src/schema.ts",
     "ui/index": "src/ui/index.ts",
     "design-tokens/design-tokens": "src/design-tokens/design-tokens.ts",

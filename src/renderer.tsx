@@ -1,52 +1,48 @@
 import type { ComponentType, ReactNode } from "react";
-import { CardPrimitive, KeyValuePrimitive, ButtonGroupPrimitive } from "./primitives";
+import {
+  Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter,
+} from "./ui/Card";
+import { Button } from "./ui/Button";
 import type { UINode } from "./types";
 
-const defaultPrimitives: Record<string, ComponentType<any>> = {
-  card: CardPrimitive,
-  "key-value": KeyValuePrimitive,
-  "button-group": ButtonGroupPrimitive,
+const defaultComponents: Record<string, ComponentType<any>> = {
+  card: Card,
+  "card-header": CardHeader,
+  "card-title": CardTitle,
+  "card-description": CardDescription,
+  "card-content": CardContent,
+  "card-footer": CardFooter,
+  button: Button,
 };
 
-let registeredPrimitives: Record<string, ComponentType<any>> = {
-  ...defaultPrimitives,
-};
+let registry: Record<string, ComponentType<any>> = { ...defaultComponents };
 
 /**
- * Register additional primitives or override defaults.
- * Call this at app startup to extend the renderer with custom components.
+ * Register additional components or override defaults.
  */
-export function registerPrimitives(
-  primitives: Record<string, ComponentType<any>>,
-) {
-  registeredPrimitives = { ...registeredPrimitives, ...primitives };
+export function registerPrimitives(components: Record<string, ComponentType<any>>) {
+  registry = { ...registry, ...components };
 }
 
-/**
- * Check if unknown data is a valid UINode that can be rendered.
- */
 export function isUINode(data: unknown): data is UINode {
   return (
     typeof data === "object" &&
     data !== null &&
     "type" in data &&
     typeof (data as any).type === "string" &&
-    (data as any).type in registeredPrimitives
+    (data as any).type in registry
   );
 }
 
-/**
- * Returns the list of currently registered primitive type names.
- */
 export function getAvailablePrimitives(): string[] {
-  return Object.keys(registeredPrimitives);
+  return Object.keys(registry);
 }
 
 /**
  * Recursive renderer that composes a UINode tree into React elements.
  */
 export default function UIRenderer({ node }: { node: UINode }) {
-  const Component = registeredPrimitives[node.type];
+  const Component = registry[node.type];
   if (!Component) return null;
 
   const childElements: ReactNode = node.children?.map((child, i) => (

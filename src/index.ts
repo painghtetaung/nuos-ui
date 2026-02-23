@@ -1,20 +1,8 @@
 // Renderer
 export { default as UIRenderer, isUINode, getAvailablePrimitives, registerPrimitives } from "./renderer";
 
-// Primitives
-export { CardPrimitive, KeyValuePrimitive, ButtonGroupPrimitive } from "./primitives";
-
 // Types
-export type {
-  UINode,
-  CardPrimitiveProps,
-  KeyValueItem,
-  KeyValuePrimitiveProps,
-  ButtonItem,
-  ButtonGroupPrimitiveProps,
-  PrimitiveSchema,
-  ComponentSchema,
-} from "./types";
+export type { UINode, PrimitiveSchema, ComponentSchema } from "./types";
 
 // Schema
 export { componentSchema, getPrimitiveSchemas, getFullExample } from "./schema";
@@ -22,6 +10,7 @@ export { componentSchema, getPrimitiveSchemas, getFullExample } from "./schema";
 // UI Components
 export { Button } from "./ui";
 export type { ButtonProps } from "./ui";
+export { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui";
 
 // Utils
 export { cn } from "./utils";
