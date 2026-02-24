@@ -19,7 +19,7 @@ export { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } 
 export { DatePickerInput } from "./DatePickerInput";
 export { DropdownMenu } from "./Dropdown";
 export { FileInput } from "./FileInput";
-export { FileUpload } from "./FileUpload";
+export { FileUpload, FileUploadField } from "./FileUpload";
 export { GradientContainer } from "./GradientContainer";
 export { default as Grid } from "./Grid";
 export { default as IconButton } from "./IconButton";
