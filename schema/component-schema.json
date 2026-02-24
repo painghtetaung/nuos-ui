@@ -385,6 +385,713 @@
         }
       },
       "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "form": {
+      "$ref": "#/definitions/form",
+      "definitions": {
+        "form": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "form"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique form ID"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Form field components"
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A form container. Wrap form fields inside."
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "input-field": {
+      "$ref": "#/definitions/input-field",
+      "definitions": {
+        "input-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "input-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name (maps to form data key)"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Label text above the input"
+                },
+                "placeholder": {
+                  "type": "string",
+                  "description": "Placeholder text"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "text",
+                    "email",
+                    "number",
+                    "url",
+                    "search",
+                    "tel"
+                  ],
+                  "description": "Input type. Defaults to 'text'"
+                },
+                "required": {
+                  "type": "boolean",
+                  "description": "Whether the field is required"
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A text input field inside a form"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "password-field": {
+      "$ref": "#/definitions/password-field",
+      "definitions": {
+        "password-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "password-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Label text"
+                },
+                "placeholder": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A password input field with show/hide toggle"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "textarea-field": {
+      "$ref": "#/definitions/textarea-field",
+      "definitions": {
+        "textarea-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "textarea-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Label text"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "rows": {
+                  "type": "number",
+                  "description": "Number of visible rows"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A multi-line text input field"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "select-field": {
+      "$ref": "#/definitions/select-field",
+      "definitions": {
+        "select-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "select-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Label text"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "options": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "description": "Display text"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Option value"
+                      }
+                    },
+                    "required": [
+                      "label",
+                      "value"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "Array of selectable options"
+                },
+                "required": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name",
+                "options"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A dropdown select field"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "checkbox-field": {
+      "$ref": "#/definitions/checkbox-field",
+      "definitions": {
+        "checkbox-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "checkbox-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Checkbox label text"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A checkbox field"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "radio-field": {
+      "$ref": "#/definitions/radio-field",
+      "definitions": {
+        "radio-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "radio-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Group label"
+                },
+                "options": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "description": "Option label"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Option value"
+                      }
+                    },
+                    "required": [
+                      "label",
+                      "value"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "Array of radio options"
+                }
+              },
+              "required": [
+                "name",
+                "options"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A radio button group field"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "switch-field": {
+      "$ref": "#/definitions/switch-field",
+      "definitions": {
+        "switch-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "switch-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Switch label"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A toggle switch field"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "date-field": {
+      "$ref": "#/definitions/date-field",
+      "definitions": {
+        "date-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "date-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Label text"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "disablePast": {
+                  "type": "boolean",
+                  "description": "Disable past dates"
+                },
+                "required": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A date picker field"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "time-field": {
+      "$ref": "#/definitions/time-field",
+      "definitions": {
+        "time-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "time-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Label text"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A time picker field"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "combobox-field": {
+      "$ref": "#/definitions/combobox-field",
+      "definitions": {
+        "combobox-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "combobox-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Label text"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "options": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "description": "Display text"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Option value"
+                      }
+                    },
+                    "required": [
+                      "label",
+                      "value"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "Array of searchable options"
+                }
+              },
+              "required": [
+                "name",
+                "options"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A searchable combobox/autocomplete field"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "multi-select-field": {
+      "$ref": "#/definitions/multi-select-field",
+      "definitions": {
+        "multi-select-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "multi-select-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Label text"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "options": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "description": "Display text"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Option value"
+                      }
+                    },
+                    "required": [
+                      "label",
+                      "value"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "Array of options for multi-selection"
+                }
+              },
+              "required": [
+                "name",
+                "options"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A multi-select dropdown field"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "otp-field": {
+      "$ref": "#/definitions/otp-field",
+      "definitions": {
+        "otp-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "otp-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "maxLength": {
+                  "type": "number",
+                  "description": "Number of OTP digits. Defaults to 6"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "An OTP (one-time password) input field"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "file-upload-field": {
+      "$ref": "#/definitions/file-upload-field",
+      "definitions": {
+        "file-upload-field": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "file-upload-field"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Field name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Label text"
+                },
+                "isMultiple": {
+                  "type": "boolean",
+                  "description": "Allow multiple files"
+                },
+                "maxFiles": {
+                  "type": "number",
+                  "description": "Maximum number of files"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A file upload field with drag-and-drop"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
     }
   }
 }

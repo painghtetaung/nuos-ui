@@ -1,6 +1,6 @@
 {
   "name": "magick-ui",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Generative UI primitives, renderer, design tokens, and schema for composing dynamic chat interfaces",
   "type": "module",
   "main": "./dist/index.cjs",
