@@ -2,7 +2,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 import { Loader2Icon } from "lucide-react";
 import * as React from "react";
-import { cn } from "../utils";
+import { cn } from "@/utils";
 
 export interface ButtonProps
   extends Omit<React.ComponentProps<"button">, "prefix" | "suffix"> {

@@ -1,6 +1,3 @@
-// Renderer
-export { default as UIRenderer, isUINode, getAvailablePrimitives, registerPrimitives } from "./renderer";
-
 // Types
 export type { UINode, ComponentSchema } from "./types";
 

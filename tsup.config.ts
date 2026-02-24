@@ -1,4 +1,5 @@
 import { defineConfig } from "tsup";
+import path from "node:path";
 
 export default defineConfig({
   entry: {
@@ -14,4 +15,9 @@ export default defineConfig({
   clean: true,
   external: ["react", "react-dom"],
   jsx: "automatic",
+  esbuildOptions(options) {
+    options.alias = {
+      "@": path.resolve(import.meta.dirname, "src"),
+    };
+  },
 });
