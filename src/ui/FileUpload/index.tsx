@@ -3,7 +3,7 @@ import { File } from "magick-icons";
 import React, { createContext, useCallback, useContext, useState } from "react";
 import { type FileRejection, useDropzone } from "react-dropzone";
 import { truncateFileNameMid } from "@/utils";
-import { Separator } from "@/registry/ui/separator";
+import { Separator } from "@radix-ui/react-separator";
 import { Button } from "@/ui/Button";
 
 // Constants

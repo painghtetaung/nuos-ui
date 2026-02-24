@@ -1,5 +1,5 @@
 import { cn } from "@/utils";
-import { Spinner } from "@/registry/ui/spinner";
+import { Loader2 as Spinner } from "lucide-react";
 import { Badge } from "@/ui/Badge";
 import { ProgressIndicator } from "@/ui/ProgressIndicator";
 import {

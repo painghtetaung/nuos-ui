@@ -1,4 +1,4 @@
-import { Avatar, Badge } from "@/shared/components/common";
+import { Avatar, Badge } from "@/ui";
 import { Text } from "@/ui/Text";
 import { cn, getInitials } from "@/utils";
 import type { PositionProps } from "@/ui/Tooltip";

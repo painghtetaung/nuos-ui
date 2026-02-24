@@ -5,12 +5,10 @@ export type { UINode, ComponentSchema } from "./types";
 export { componentSchema, getComponentSchemas } from "./schema";
 
 // UI Components
-export { Button } from "./ui";
-export type { ButtonProps } from "./ui";
-export { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui";
+export * from "./ui";
 
 // Utils
-export { cn } from "./utils";
+export { cn, getInitials, getFirstName, truncateFileNameMid, getFileSize, getPaginationItems } from "./utils";
 
 // Design Tokens
 export { designTokens, getTokenValue, getTokenValueWithFallback } from "./design-tokens/design-tokens";

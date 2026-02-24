@@ -18,13 +18,11 @@ import { SelectInput } from "@/ui/SelectInput";
 import TextareaInput from "@/ui/TextAreaInput";
 import { Checkbox } from "@/ui/Checkbox";
 import { Combobox } from "@/ui/Combobox";
-import { InfiniteCombobox } from "@/ui/Combobox/InfiniteCombobox";
 import { DatePickerInput } from "@/ui/DatePickerInput";
 import { FileUploadField } from "@/ui/FileUpload";
 import { MultiSelect } from "@/ui/MultiSelect";
 import { OTPInput } from "@/ui/OTPInput";
 import { Radio } from "@/ui/Radio";
-import SuggestTextInput from "@/ui/SuggestTextInput";
 import { Switch } from "@/ui/Switch";
 import { TimePicker } from "@/ui/TimePicker";
 
@@ -194,25 +192,6 @@ Form.TextareaField = function TextareaField<
         label,
         optional,
         render: <TextareaInput {...props} />,
-      }}
-    />
-  );
-};
-
-Form.SuggestTextInputField = function SuggestTextInputField<
-  T extends FieldValues = FieldValues,
->({
-  name,
-  ...props
-}: { name: FieldPath<T> } & React.ComponentProps<typeof SuggestTextInput>) {
-  const { control } = useFormContext<T>();
-
-  return (
-    <FormField
-      control={control}
-      field={{
-        name,
-        render: <SuggestTextInput name={name} {...props} />,
       }}
     />
   );
@@ -444,33 +423,6 @@ Form.ComboboxField = function ComboboxField<
   );
 };
 
-Form.InfiniteComboboxField = function InfiniteComboboxField<
-  T extends FieldValues = FieldValues,
->({
-  name,
-  ...props
-}: { name: FieldPath<T> } & Omit<
-  React.ComponentProps<typeof InfiniteCombobox>,
-  "onChange" | "value"
->) {
-  const { control, setValue, watch } = useFormContext<T>();
-  const value = watch(name);
-  return (
-    <FormField
-      control={control}
-      field={{
-        name,
-        render: (
-          <InfiniteCombobox
-            {...props}
-            value={value || ""}
-            onChange={(val) => setValue(name, val as PathValue<T, Path<T>>)}
-          />
-        ),
-      }}
-    />
-  );
-};
 
 Form.SwitchField = function SwitchField<T extends FieldValues = FieldValues>({
   name,
