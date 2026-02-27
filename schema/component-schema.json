@@ -1092,6 +1092,3070 @@
         }
       },
       "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "text": {
+      "$ref": "#/definitions/text",
+      "definitions": {
+        "text": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "text"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Text content"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A paragraph of text"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "title": {
+      "$ref": "#/definitions/title",
+      "definitions": {
+        "title": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "title"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Heading text"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A heading / title element"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "label": {
+      "$ref": "#/definitions/label",
+      "definitions": {
+        "label": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "label"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Label text"
+                },
+                "htmlFor": {
+                  "type": "string",
+                  "description": "ID of the form element this label is for"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A form label element"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "badge": {
+      "$ref": "#/definitions/badge",
+      "definitions": {
+        "badge": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "badge"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Badge text"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "primary-hard",
+                    "primary-soft",
+                    "destructive-hard",
+                    "destructive-soft",
+                    "secondary-hard",
+                    "secondary-soft"
+                  ],
+                  "description": "Badge style. Defaults to 'primary-hard'"
+                },
+                "size": {
+                  "type": "string",
+                  "enum": [
+                    "sm",
+                    "md"
+                  ],
+                  "description": "Badge size. Defaults to 'sm'"
+                },
+                "rounded": {
+                  "type": "boolean",
+                  "description": "Fully rounded pill shape"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A small status badge / label"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "tag": {
+      "$ref": "#/definitions/tag",
+      "definitions": {
+        "tag": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "tag"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "description": "Tag text"
+                },
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "primary",
+                    "secondary",
+                    "destructive"
+                  ],
+                  "description": "Tag color variant. Defaults to 'primary'"
+                }
+              },
+              "required": [
+                "label"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A colored tag / pill"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "chip": {
+      "$ref": "#/definitions/chip",
+      "definitions": {
+        "chip": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "chip"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "description": "Chip text"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "rounded",
+                    "rectangle"
+                  ],
+                  "description": "Chip shape. Defaults to 'rounded'"
+                },
+                "color": {
+                  "type": "string",
+                  "enum": [
+                    "slate",
+                    "red",
+                    "orange",
+                    "amber",
+                    "yellow",
+                    "lime",
+                    "green",
+                    "emerald",
+                    "teal",
+                    "cyan",
+                    "sky",
+                    "blue",
+                    "indigo",
+                    "violet",
+                    "purple",
+                    "fuchsia",
+                    "pink",
+                    "rose"
+                  ],
+                  "description": "Chip color. Defaults to 'slate'"
+                },
+                "dot": {
+                  "type": "boolean",
+                  "description": "Show a colored dot indicator"
+                },
+                "avatar": {
+                  "type": "string",
+                  "description": "Avatar image URL shown inside the chip"
+                }
+              },
+              "required": [
+                "label"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A compact chip element with optional color dot or avatar"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "alert": {
+      "$ref": "#/definitions/alert",
+      "definitions": {
+        "alert": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "alert"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "default",
+                    "secondary",
+                    "destructive"
+                  ],
+                  "description": "Alert style. Defaults to 'default'"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Alert heading"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Alert body text"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "An alert / notice banner"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "skeleton": {
+      "$ref": "#/definitions/skeleton",
+      "definitions": {
+        "skeleton": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "skeleton"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "className": {
+                  "type": "string",
+                  "description": "Tailwind classes to control width/height, e.g. 'h-4 w-[250px]'"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A loading placeholder skeleton"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "progress-indicator": {
+      "$ref": "#/definitions/progress-indicator",
+      "definitions": {
+        "progress-indicator": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "progress-indicator"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "description": "Current progress value"
+                },
+                "max": {
+                  "type": "number",
+                  "description": "Maximum value. Defaults to 100"
+                },
+                "showPercentage": {
+                  "type": "boolean",
+                  "description": "Show percentage text. Defaults to true"
+                },
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "bar",
+                    "circle"
+                  ],
+                  "description": "Display style. Defaults to 'bar'"
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A progress bar or circular progress indicator"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "avatar": {
+      "$ref": "#/definitions/avatar",
+      "definitions": {
+        "avatar": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "avatar"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "image",
+                    "text",
+                    "placeholder"
+                  ],
+                  "description": "Avatar display mode"
+                },
+                "fallback": {
+                  "type": "string",
+                  "description": "Fallback text (initials) when image is unavailable"
+                },
+                "imgsrc": {
+                  "type": "string",
+                  "description": "Image URL (required when variant is 'image')"
+                },
+                "size": {
+                  "type": "string",
+                  "enum": [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl",
+                    "3xl",
+                    "4xl",
+                    "5xl"
+                  ],
+                  "description": "Avatar size. Defaults to 'md'"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "inactive"
+                  ],
+                  "description": "Online status indicator"
+                }
+              },
+              "required": [
+                "variant",
+                "fallback"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A user avatar displaying an image, initials, or placeholder"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "avatar-list-item": {
+      "$ref": "#/definitions/avatar-list-item",
+      "definitions": {
+        "avatar-list-item": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "avatar-list-item"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "avatar": {
+                  "type": "string",
+                  "description": "Avatar image URL"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Display name"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "Email address"
+                },
+                "isMe": {
+                  "type": "boolean",
+                  "description": "Highlight as current user"
+                }
+              },
+              "required": [
+                "avatar",
+                "name",
+                "email"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "An avatar with name and email, typically used in lists"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "media": {
+      "$ref": "#/definitions/media",
+      "definitions": {
+        "media": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "media"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "src": {
+                  "type": "string",
+                  "description": "Media source URL"
+                },
+                "alt": {
+                  "type": "string",
+                  "description": "Alt text for images"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "image",
+                    "video"
+                  ],
+                  "description": "Media type. Defaults to 'image'"
+                },
+                "aspectRatio": {
+                  "type": "string",
+                  "enum": [
+                    "1:1",
+                    "16:9",
+                    "9:16",
+                    "4:3",
+                    "3:4"
+                  ],
+                  "description": "Fixed aspect ratio"
+                },
+                "objectFit": {
+                  "type": "string",
+                  "enum": [
+                    "cover",
+                    "contain",
+                    "fill",
+                    "scale-down",
+                    "none"
+                  ],
+                  "description": "How the media fills its container. Defaults to 'cover'"
+                },
+                "rounded": {
+                  "type": "string",
+                  "enum": [
+                    "none",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl",
+                    "full"
+                  ],
+                  "description": "Border radius"
+                },
+                "loading": {
+                  "type": "string",
+                  "enum": [
+                    "lazy",
+                    "eager"
+                  ],
+                  "description": "Loading strategy. Defaults to 'lazy'"
+                }
+              },
+              "required": [
+                "src"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "An image or video media element"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "grid": {
+      "$ref": "#/definitions/grid",
+      "definitions": {
+        "grid": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "grid"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "className": {
+                  "type": "string",
+                  "description": "Tailwind grid classes, e.g. 'grid-cols-2 gap-4'"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Grid items"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A CSS grid layout container"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "accordion": {
+      "$ref": "#/definitions/accordion",
+      "definitions": {
+        "accordion": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "accordion"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "single",
+                    "multiple"
+                  ],
+                  "description": "Allow one or multiple items open. Defaults to 'single'"
+                },
+                "collapsible": {
+                  "type": "boolean",
+                  "description": "Allow collapsing all items"
+                },
+                "defaultValue": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "description": "Initially open item value(s)"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Compose with accordion-item children"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A collapsible accordion container"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "accordion-item": {
+      "$ref": "#/definitions/accordion-item",
+      "definitions": {
+        "accordion-item": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "accordion-item"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "Unique item identifier"
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Place accordion-trigger and accordion-content inside"
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A single accordion section"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "accordion-trigger": {
+      "$ref": "#/definitions/accordion-trigger",
+      "definitions": {
+        "accordion-trigger": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "accordion-trigger"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Trigger label text"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Clickable header that toggles an accordion-item"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "accordion-content": {
+      "$ref": "#/definitions/accordion-content",
+      "definitions": {
+        "accordion-content": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "accordion-content"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Content revealed when the item is open"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Collapsible content area of an accordion-item"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "tabs": {
+      "$ref": "#/definitions/tabs",
+      "definitions": {
+        "tabs": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "tabs"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "defaultActiveTab": {
+                  "type": "string",
+                  "description": "Value of the initially active tab"
+                },
+                "tabs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "description": "Unique tab identifier"
+                      },
+                      "label": {
+                        "type": "string",
+                        "description": "Tab label text"
+                      },
+                      "count": {
+                        "type": "number",
+                        "description": "Badge count on the tab"
+                      },
+                      "notification": {
+                        "type": "boolean",
+                        "description": "Show notification dot"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "label"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "Tab definitions"
+                },
+                "tabSmall": {
+                  "type": "boolean",
+                  "description": "Use compact tab styling"
+                },
+                "showContent": {
+                  "type": "boolean",
+                  "description": "Show tab content panels. Defaults to true"
+                }
+              },
+              "required": [
+                "defaultActiveTab",
+                "tabs"
+              ],
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Tab content panels (one per tab, in order)"
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A tabbed interface with switchable content panels"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "wrapper-card": {
+      "$ref": "#/definitions/wrapper-card",
+      "definitions": {
+        "wrapper-card": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "wrapper-card"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Card body content"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A simple card wrapper with default padding and border"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "gradient-container": {
+      "$ref": "#/definitions/gradient-container",
+      "definitions": {
+        "gradient-container": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "gradient-container"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Content inside the gradient container"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A container with a gradient background"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "carousel": {
+      "$ref": "#/definitions/carousel",
+      "definitions": {
+        "carousel": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "carousel"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "orientation": {
+                  "type": "string",
+                  "enum": [
+                    "horizontal",
+                    "vertical"
+                  ],
+                  "description": "Scroll direction. Defaults to 'horizontal'"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Place a carousel-content inside"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A scrollable carousel container"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "carousel-content": {
+      "$ref": "#/definitions/carousel-content",
+      "definitions": {
+        "carousel-content": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "carousel-content"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Compose with carousel-item children"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Content track of a carousel"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "carousel-item": {
+      "$ref": "#/definitions/carousel-item",
+      "definitions": {
+        "carousel-item": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "carousel-item"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Content for this slide"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A single slide inside a carousel"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "toggle": {
+      "$ref": "#/definitions/toggle",
+      "definitions": {
+        "toggle": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "toggle"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "boolean",
+                  "description": "Whether the toggle is pressed"
+                },
+                "shape": {
+                  "type": "string",
+                  "enum": [
+                    "rectangle",
+                    "rounded"
+                  ],
+                  "description": "Toggle shape. Defaults to 'rectangle'"
+                },
+                "style": {
+                  "type": "string",
+                  "enum": [
+                    "ghost",
+                    "outline",
+                    "soft"
+                  ],
+                  "description": "Visual style. Defaults to 'soft'"
+                },
+                "size": {
+                  "type": "string",
+                  "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                  ],
+                  "description": "Toggle size. Defaults to 'sm'"
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Toggle label / content"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A pressable toggle button"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "slider": {
+      "$ref": "#/definitions/slider",
+      "definitions": {
+        "slider": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "slider"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "defaultValue": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  ],
+                  "description": "Initial value or range [min, max]"
+                },
+                "min": {
+                  "type": "number",
+                  "description": "Minimum value. Defaults to 0"
+                },
+                "max": {
+                  "type": "number",
+                  "description": "Maximum value. Defaults to 100"
+                },
+                "step": {
+                  "type": "number",
+                  "description": "Step increment"
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A range slider input"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "search-input": {
+      "$ref": "#/definitions/search-input",
+      "definitions": {
+        "search-input": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "search-input"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "searchKey": {
+                  "type": "string",
+                  "description": "URL query param key for the search value"
+                },
+                "placeholder": {
+                  "type": "string",
+                  "description": "Placeholder text. Defaults to 'Search by...'"
+                },
+                "debounceDelay": {
+                  "type": "number",
+                  "description": "Debounce delay in ms. Defaults to 500"
+                },
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "ghost",
+                    "outline"
+                  ],
+                  "description": "Input style variant"
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "searchKey"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A search input with debounced query param binding"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "icon-button": {
+      "$ref": "#/definitions/icon-button",
+      "definitions": {
+        "icon-button": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "icon-button"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "icon": {
+                  "type": "string",
+                  "description": "Icon name (resolved by the renderer)"
+                },
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "primary",
+                    "secondary",
+                    "destructive",
+                    "outline",
+                    "ghost",
+                    "soft",
+                    "ai-filled",
+                    "ai-outline",
+                    "glass"
+                  ],
+                  "description": "Button style. Defaults to 'primary'"
+                },
+                "size": {
+                  "type": "string",
+                  "enum": [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg"
+                  ],
+                  "description": "Button size. Defaults to 'sm'"
+                },
+                "active": {
+                  "type": "boolean",
+                  "description": "Active / pressed state"
+                },
+                "rounded": {
+                  "type": "boolean",
+                  "description": "Fully round button"
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "icon"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "An icon-only action button"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "link-button": {
+      "$ref": "#/definitions/link-button",
+      "definitions": {
+        "link-button": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "link-button"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string",
+                  "description": "Link URL"
+                },
+                "children": {
+                  "type": "string",
+                  "description": "Link text"
+                }
+              },
+              "required": [
+                "href"
+              ],
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A button styled as a navigation link"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "button-link": {
+      "$ref": "#/definitions/button-link",
+      "definitions": {
+        "button-link": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "button-link"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Link text"
+                },
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "link",
+                    "text-link",
+                    "error"
+                  ],
+                  "description": "Link style. Defaults to 'link'"
+                },
+                "href": {
+                  "type": "string",
+                  "description": "Link URL"
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "An inline text link styled as a button"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "select-hover": {
+      "$ref": "#/definitions/select-hover",
+      "definitions": {
+        "select-hover": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "select-hover"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "options": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "description": "Display text"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Option value"
+                      }
+                    },
+                    "required": [
+                      "label",
+                      "value"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "Array of selectable options"
+                },
+                "placeholder": {
+                  "type": "string",
+                  "description": "Placeholder text. Defaults to 'Select an option'"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "Currently selected value"
+                }
+              },
+              "required": [
+                "options"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A hover-activated select dropdown"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "breadcrumb": {
+      "$ref": "#/definitions/breadcrumb",
+      "definitions": {
+        "breadcrumb": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "breadcrumb"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "description": "Breadcrumb text"
+                      },
+                      "href": {
+                        "type": "string",
+                        "description": "Navigation URL"
+                      },
+                      "disabled": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "label"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "Ordered list of breadcrumb segments"
+                }
+              },
+              "required": [
+                "items"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A breadcrumb navigation trail"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "tooltip": {
+      "$ref": "#/definitions/tooltip",
+      "definitions": {
+        "tooltip": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "tooltip"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string",
+                  "description": "Tooltip text"
+                },
+                "position": {
+                  "type": "string",
+                  "enum": [
+                    "top",
+                    "top-center",
+                    "top-left",
+                    "top-right",
+                    "bottom",
+                    "bottom-left",
+                    "bottom-center",
+                    "bottom-right",
+                    "left",
+                    "right"
+                  ],
+                  "description": "Tooltip placement"
+                },
+                "withArrow": {
+                  "type": "boolean",
+                  "description": "Show an arrow pointer"
+                }
+              },
+              "required": [
+                "content"
+              ],
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "The trigger element the tooltip wraps"
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A tooltip that appears on hover over its child element"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "table": {
+      "$ref": "#/definitions/table",
+      "definitions": {
+        "table": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "table"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "columns": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "accessorKey": {
+                        "type": "string",
+                        "description": "Key in the row data object"
+                      },
+                      "header": {
+                        "type": "string",
+                        "description": "Column header text"
+                      }
+                    },
+                    "required": [
+                      "accessorKey",
+                      "header"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "Column definitions"
+                },
+                "tableData": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "description": "Array of row data objects"
+                }
+              },
+              "required": [
+                "columns",
+                "tableData"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "props"
+          ],
+          "additionalProperties": false,
+          "description": "A data table with columns and rows"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "sheet": {
+      "$ref": "#/definitions/sheet",
+      "definitions": {
+        "sheet": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "sheet"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Compose with sheet-trigger and sheet-content"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A slide-out panel overlay"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "sheet-trigger": {
+      "$ref": "#/definitions/sheet-trigger",
+      "definitions": {
+        "sheet-trigger": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "sheet-trigger"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "The element that opens the sheet"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Trigger element that opens a sheet"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "sheet-content": {
+      "$ref": "#/definitions/sheet-content",
+      "definitions": {
+        "sheet-content": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "sheet-content"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "side": {
+                  "type": "string",
+                  "enum": [
+                    "top",
+                    "right",
+                    "bottom",
+                    "left"
+                  ],
+                  "description": "Slide-in direction. Defaults to 'right'"
+                },
+                "showCloseButton": {
+                  "type": "boolean",
+                  "description": "Show close button. Defaults to true"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Sheet body content"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Content panel of a sheet"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "sheet-header": {
+      "$ref": "#/definitions/sheet-header",
+      "definitions": {
+        "sheet-header": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "sheet-header"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Header section of a sheet"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "sheet-footer": {
+      "$ref": "#/definitions/sheet-footer",
+      "definitions": {
+        "sheet-footer": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "sheet-footer"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Footer section of a sheet"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "sheet-title": {
+      "$ref": "#/definitions/sheet-title",
+      "definitions": {
+        "sheet-title": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "sheet-title"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Title text"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Title inside a sheet-header"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "sheet-description": {
+      "$ref": "#/definitions/sheet-description",
+      "definitions": {
+        "sheet-description": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "sheet-description"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Description text"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Description text inside a sheet-header"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "dropdown-menu": {
+      "$ref": "#/definitions/dropdown-menu",
+      "definitions": {
+        "dropdown-menu": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "dropdown-menu"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Compose with dropdown-menu-trigger and dropdown-menu-content"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A dropdown menu container"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "dropdown-menu-trigger": {
+      "$ref": "#/definitions/dropdown-menu-trigger",
+      "definitions": {
+        "dropdown-menu-trigger": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "dropdown-menu-trigger"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "The element that opens the dropdown"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Trigger element that opens a dropdown menu"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "dropdown-menu-content": {
+      "$ref": "#/definitions/dropdown-menu-content",
+      "definitions": {
+        "dropdown-menu-content": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "dropdown-menu-content"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "side": {
+                  "type": "string",
+                  "enum": [
+                    "top",
+                    "right",
+                    "bottom",
+                    "left"
+                  ]
+                },
+                "align": {
+                  "type": "string",
+                  "enum": [
+                    "start",
+                    "center",
+                    "end"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Menu items"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Content panel of a dropdown menu"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "dropdown-menu-item": {
+      "$ref": "#/definitions/dropdown-menu-item",
+      "definitions": {
+        "dropdown-menu-item": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "dropdown-menu-item"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Menu item text"
+                },
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "default",
+                    "destructive"
+                  ],
+                  "description": "Item style. Defaults to 'default'"
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A single item inside a dropdown menu"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "dropdown-menu-separator": {
+      "$ref": "#/definitions/dropdown-menu-separator",
+      "definitions": {
+        "dropdown-menu-separator": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "dropdown-menu-separator"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A visual separator between dropdown menu items"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "dropdown-menu-label": {
+      "$ref": "#/definitions/dropdown-menu-label",
+      "definitions": {
+        "dropdown-menu-label": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "dropdown-menu-label"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Label text"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A non-interactive label inside a dropdown menu"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "popover": {
+      "$ref": "#/definitions/popover",
+      "definitions": {
+        "popover": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "popover"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Compose with popover-trigger and popover-content"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A popover overlay container"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "popover-trigger": {
+      "$ref": "#/definitions/popover-trigger",
+      "definitions": {
+        "popover-trigger": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "popover-trigger"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "The element that opens the popover"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Trigger element that opens a popover"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "popover-content": {
+      "$ref": "#/definitions/popover-content",
+      "definitions": {
+        "popover-content": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "popover-content"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "align": {
+                  "type": "string",
+                  "enum": [
+                    "start",
+                    "center",
+                    "end"
+                  ],
+                  "description": "Alignment relative to trigger. Defaults to 'center'"
+                },
+                "sideOffset": {
+                  "type": "number",
+                  "description": "Offset from trigger in px. Defaults to 4"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Popover body content"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Content panel of a popover"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "context-menu": {
+      "$ref": "#/definitions/context-menu",
+      "definitions": {
+        "context-menu": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "context-menu"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Compose with context-menu-trigger and context-menu-content"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A right-click context menu container"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "context-menu-trigger": {
+      "$ref": "#/definitions/context-menu-trigger",
+      "definitions": {
+        "context-menu-trigger": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "context-menu-trigger"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "The element that triggers the context menu on right-click"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Trigger area for a context menu"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "context-menu-content": {
+      "$ref": "#/definitions/context-menu-content",
+      "definitions": {
+        "context-menu-content": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "context-menu-content"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Menu items"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "Content panel of a context menu"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "context-menu-item": {
+      "$ref": "#/definitions/context-menu-item",
+      "definitions": {
+        "context-menu-item": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "context-menu-item"
+            },
+            "props": {
+              "type": "object",
+              "properties": {
+                "children": {
+                  "type": "string",
+                  "description": "Menu item text"
+                },
+                "variant": {
+                  "type": "string",
+                  "enum": [
+                    "default",
+                    "destructive"
+                  ],
+                  "description": "Item style. Defaults to 'default'"
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "props": {
+                    "type": "object",
+                    "additionalProperties": {}
+                  },
+                  "children": {
+                    "type": "array",
+                    "items": {}
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A single item inside a context menu"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "context-menu-separator": {
+      "$ref": "#/definitions/context-menu-separator",
+      "definitions": {
+        "context-menu-separator": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "context-menu-separator"
+            },
+            "props": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "description": "A visual separator between context menu items"
+        }
+      },
+      "$schema": "http://json-schema.org/draft-07/schema#"
     }
   }
 }
